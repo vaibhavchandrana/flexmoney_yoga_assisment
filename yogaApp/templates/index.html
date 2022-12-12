@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
+</head>
+
+<body bgcolor="black">
+
+    <div class="text">
+        <img src="../static/images/yogtext.svg" alt="" height="100px" width="150px">
+    </div>
+
+    <main>
+
+        <div class="yogbout">
+            <div class="text2">
+                <p class="union">Yoga to union</p>
+
+                <div class="subtext">
+                    <div class="border">
+
+                        <p> "Alleviate stress and anxiety, experience inner
+                            calm and uncover your true self with
+                            Yoga. </p>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="imag">
+
+                <img src="../static/images/yog.svg" alt="" height="100%" width="100%">
+
+            </div>
+
+        </div>
+
+
+        <div class="nextsec">
+            <img src="../static/images/lotus.svg" alt="" height="120px" width="300px">
+
+        </div>
+
+
+        <div class="formsec">
+
+            <div class="sidef"><img src="../static/images/formside.svg" alt="" width="100%" height="100%"></div>
+
+            <div class="form_outer_div">
+                <h2 id="show_error">{{error}}<h2>
+
+                    <!-- --------------form start here --------------- -->
+                        <form action="/registration/" method="post" onsubmit="return validate()" ;>
+                            {% csrf_token %}
+
+                            <input type="text" placeholder="Enter Your Name" id="name" name="name" required>
+                            <input type="text" placeholder="Enter Phone Number" id="phone" name="phone" required>
+                            <input type="email" placeholder="Email" id="email" name="email" required>
+                            <input type="number" placeholder="Enter age" id="age" max="65" min="18" name="age" required>
+                            <input type="password" placeholder="Enter Password" id="password" name="pass" required>
+                            <input type="password" placeholder="Confirm Password" name="c_pass" id="confirm_password"
+                                required>
+
+                            <!-- --------------batch radio start here --------------- -->
+
+                            <p id="select_batch">Select batch</p>
+                            <div class="radio">
+                                <input type="radio" name="batch" id="one" value="6-7am" checked> <label
+                                    onclick="timechange(1)" for="one">6-7 am</label>
+                                <input type="radio" name="batch" id="two" value="7-8am"> <label onclick="timechange(2)"
+                                    for="two">7-8 am</label>
+                                <input type="radio" name="batch" id="three" value="8-9am"> <label
+                                    onclick="timechange(3)" for="three">8-9 am</label>
+                                <input type="radio" name="batch" id="four" value="5-6pm"> <label onclick="timechange(4)"
+                                    for="four">5-6 pm</label>
+
+                                <div id="time">
+                                    <img src="../static/images/6am.svg" alt="" srcset="" width="100%" height="100%"
+                                        id="timeclock">
+                                </div>
+
+                            </div>
+                            <!-- --------------batch radio end here --------------- -->
+
+
+                            <!-- --------------payment pop up start here --------------- -->
+
+                            <div id="popup_pay" class="popup_container">
+                                <div class="popup_content" style="width: 30vw;">
+                                    <a href="#" class="close">&times;</a>
+                                    <h3>Pay your month Fess</h3>
+                                    <p>Note: This is demo payment</p>
+                                    <h1>Rs 500</h1>
+
+                                    <input id="form_button" type="submit" value="Pay Now">
+
+                                </div>
+                            </div>
+                            <!-- --------------payment pop up end here --------------- -->
+
+
+                            <center>
+                                <div class="popup-link btn2">
+                                    <a href="#popup_pay" id="enroll" style="height: 5vh;">Enroll</a>
+                                </div>
+                            </center>
+                        </form>
+
+                        <!-- ------------------------form end here ----------------------------- -->
+
+                        <hr>
+                        <p class="allog"> Already a member ? <a href="/login/">
+                                <i>Login</i></a> </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="../static/js/index.js"></script>
+    <script src="../static/js/validation.js"></script>
+
+</body>
+
+</html>

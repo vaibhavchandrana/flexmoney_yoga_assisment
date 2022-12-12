@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+
+</head>
+
+<body id="pbody" style="background-image: url(../static/images/back.jpg);">
+    <section >
+        <!--------------------card for profile start here-------------------------------------->
+
+        <div class="profile-card">
+            <p>Your account</p>
+            <!--------------------user profile photo -------------------------------------->
+
+            <!-- <center><img src="../static/images/profile.png" alt="" id="img2" style="margin-top:5%"></center>
+            <br> -->
+
+            <center>
+                <div class="detail">
+                    <br>
+                    <center>
+                        <p> Name : {{users.name}}<br> </p>
+                    </center>
+                    <center>
+                        <p>Email : {{users.email}}<br> </p>
+                    </center>
+                    <center>
+                        <p>Phone No : {{users.phone}}<br></P>
+                    </center>
+                    <center>
+                        <p>Batch : {{users.batch}}<br><br></p>
+                    </center>
+                    {% if flag %}
+                    <center>
+                        <p>Payment : Done<br><br></p>
+                    </center>
+                    {% else %}
+                    <center>
+                        <p>Payment : Pending <br><br></p>
+                    </center>
+                    {% endif %}
+                    <div id="popup" class="popup_container">
+                        <div class="popup_content">
+                            <a href="#" class="close">&times;</a>
+                            <h3>Change Batch</h3>
+                            <p>Note:New batch timing should be considered from next month</p>
+                            <form action="/updateBatch/" method="post">
+                                {% csrf_token %}
+                                <div class="radio">
+                                    <input type="radio" name="batch" id="one" value="6-7am" checked> <label
+                                        onclick="timechange(1)" for="one">6-7 am</label>
+                                    <input type="radio" name="batch" id="two" value="7-8am"> <label
+                                        onclick="timechange(2)" for="two">7-8 am</label>
+                                    <input type="radio" name="batch" id="three" value="8-9am"> <label
+                                        onclick="timechange(3)" for="three">8-9 am</label>
+                                    <input type="radio" name="batch" id="four" value="5-6pm"> <label
+                                        onclick="timechange(4)" for="four">5-6 pm</label>
+
+                                    <div id="time">
+                                        <img src="../static/images/6am.svg" alt="" srcset="" width="100%" height="100%"
+                                            id="timeclock">
+                                    </div>
+
+                                </div>
+                                <center><input id="form_button" type="submit" value="Submit"></center>
+
+                            </form>
+
+
+                        </div>
+                    </div>
+                   
+                    
+                    <div id="popup1" class="popup_container">
+                        <div class="popup_content">
+                            <a href="#" class="close">&times;</a>
+                            <h3>Pay your month Fess</h3>
+                            <p>Note: This is demo payment</p>
+                            <h1>Rs 500</h1>
+                            <form action="/make_payment/" method="post">
+                                {% csrf_token %}
+                            <input  id="form_button" type="submit" value="Pay Now">
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="Profile_buttons">
+                <div class="popup-link btn1">
+                    <a href="#popup">Change Batch</a>
+                </div>
+                {% if flag %}
+                <div class="popup-link btn2">
+                    <a href="#"  >Paid Already</a>
+                </div>
+                {% else %}
+                <div class="popup-link btn2">
+                    <a href="#popup1" disable >Pay now</a>
+                </div>
+                {% endif %}
+
+            </div>
+            </center>
+
+
+            <br>
+        </div>
+
+    </section>
+
+
+    <script src="../static/js/index.js"></script>
+
+</body>
+
+</html>
